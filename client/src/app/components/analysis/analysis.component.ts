@@ -91,6 +91,12 @@ export class AnalysisComponent implements OnInit {
   reformatDate(dateString: any) {
    return moment(dateString).format('DD MMM YYYY HH:mm');
   }
+  reformatDateWithHourWindow(dateString: any) {
+    var oneHourLater = moment(dateString).add(1, 'hours');
+    return moment(dateString).format('DD MMM YYYY HH:mm')
+      + "-"
+      + moment(oneHourLater).format('HH:mm');
+   }
 
   addCurrency(value: string) : string {
     return this.CURRENCY + value;
@@ -101,5 +107,4 @@ export class AnalysisComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.loadData();
   }
-
 }

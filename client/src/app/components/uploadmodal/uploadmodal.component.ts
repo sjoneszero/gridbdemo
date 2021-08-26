@@ -33,11 +33,16 @@ export class UploadmodalComponent {
 
 // OnClick of button Upload
   onUpload() {
+    this.resetFlags()
+    if(this.file == undefined || this.description == undefined) {
+      this.error = true;
+      this.errormessage = "Please provide a file and a description";
+    }
+    else {
       this.uploading = true;
-      console.log(this.file);
-        const formData = new FormData();
-        formData.append("file", this.file, this.file.name);
-        formData.append("description", this.description)
+      const formData = new FormData();
+      formData.append("file", this.file, this.file.name);
+      formData.append("description", this.description)
 
       this.backendService.uploadCsv(formData).subscribe(
           (response: any) => {
@@ -49,8 +54,8 @@ export class UploadmodalComponent {
             this.error = true;
             this.errormessage = "Upload Failed. Please check the formatting of your CSV file";
           }
-
       );
+    }
   }
   open(content: any) {
     this.resetFlags()

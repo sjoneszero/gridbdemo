@@ -25,10 +25,10 @@
             Maximum
           </div>
           <div class="card-body text-center">
-            <span class="h4 display-5 d-block">
+            <span class="h6 display-6 d-block">
               {{addCurrency(responseData.Max.Price)}}
             </span>
-            <span class="h5 d-block">
+            <span class="h6 d-block">
               {{reformatDate(responseData.Max.TimeStamp)}}
             </span>
           </div>
@@ -38,10 +38,10 @@
             Minimum
           </div>
           <div class="card-body text-center">
-            <span class="h4 display-5 d-block">
+            <span class="h6 display-6 d-block">
               {{addCurrency(responseData.Min.Price)}}
             </span>
-            <span class="h5 d-block">
+            <span class="h6 d-block">
               {{reformatDate(responseData.Min.TimeStamp)}}
             </span>
           </div>
@@ -51,7 +51,7 @@
            Average
           </div>
           <div class="card-body text-center align-self-center">
-            <span class="h4 display-5 d-block">
+            <span class="h6 display-6 d-block">
               {{addCurrency(responseData.Average.Price)}}
             </span>
           </div>
@@ -61,11 +61,11 @@
             Most Expensive Hour WIndow
           </div>
           <div class="card-body text-center">
-            <span class="h4 display-5 d-block">
-              {{addCurrency(responseData.MostExpensiveHourWindow.Price)}}
+            <span class="h6 display-6 d-block">
+              {{addCurrency(responseData.MostExpensiveHourWindow.Price)}} (Avg.)
             </span>
-            <span class="h5 d-block">
-              {{reformatDate(responseData.MostExpensiveHourWindow.TimeStamp)}}
+            <span class="h6 d-block">
+              {{reformatDateWithHourWindow(responseData.MostExpensiveHourWindow.TimeStamp)}}
             </span>
           </div>
         </div>

@@ -51,10 +51,10 @@ namespace GridBeyondDemo.Controllers
             var childEntitiesToInclude = "MarketPrices";
             var dataset = DbService.GetFirst(m => m.Id == id, childEntitiesToInclude, true);
 
-            dataset.Max = CalculateValuesForAnalysis(dataset.MarketPrices, DatasetCalculation.Max);
-            dataset.Min = CalculateValuesForAnalysis(dataset.MarketPrices, DatasetCalculation.Min);
-            dataset.Average = CalculateValuesForAnalysis(dataset.MarketPrices, DatasetCalculation.Average);
-            dataset.MostExpensiveHourWindow = CalculateValuesForAnalysis(dataset.MarketPrices, DatasetCalculation.MostExpensiveHourWindow);
+            dataset.Max = CalculateValuesForAnalysis(dataset.MarketPrices.ToList(), DatasetCalculation.Max);
+            dataset.Min = CalculateValuesForAnalysis(dataset.MarketPrices.ToList(), DatasetCalculation.Min);
+            dataset.Average = CalculateValuesForAnalysis(dataset.MarketPrices.ToList(), DatasetCalculation.Average);
+            dataset.MostExpensiveHourWindow = CalculateValuesForAnalysis(dataset.MarketPrices.ToList(), DatasetCalculation.MostExpensiveHourWindow);
             return Ok(dataset);
         }
         /// <summary>
@@ -136,7 +136,7 @@ namespace GridBeyondDemo.Controllers
         /// <param name="datasetValues">The market price data dataset</param>
         /// <param name="calculation">The specific calcuoation to perform</param>
         /// <returns></returns>
-        private MarketPrice CalculateValuesForAnalysis(IEnumerable<MarketPrice> datasetValues, DatasetCalculation calculation)
+        private MarketPrice CalculateValuesForAnalysis(List<MarketPrice> datasetValues, DatasetCalculation calculation)
         {
             switch (calculation)
             {
@@ -152,11 +152,19 @@ namespace GridBeyondDemo.Controllers
                         Price = Math.Round(datasetValues.Select(v => v.Price).Average(), 2)
                     };
                 case DatasetCalculation.MostExpensiveHourWindow:
-                    foreach (var marketPrice in datasetValues.OrderBy(v => v.TimeStamp))
-                    {
+                    var mostExpensiveWindow = new MarketPrice { 
+                       Price = 0                   
+                    }; 
+                    for (int i = 0; i < datasetValues.Count - 1; i++) {
 
+                        if (datasetValues[i].Price + datasetValues[i + 1].Price > mostExpensiveWindow.Price*2) 
+                        {
+                            mostExpensiveWindow.Price = Math.Round((datasetValues[i].Price + datasetValues[i + 1].Price) / 2, 2);
+                            mostExpensiveWindow.TimeStamp = datasetValues[i].TimeStamp; 
+                        }
                     }
-                    return datasetValues.OrderByDescending(v => v.Price).FirstOrDefault();
+                    return mostExpensiveWindow;
+
                 default:
                     return null;
             }
