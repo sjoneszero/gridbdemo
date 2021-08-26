@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridBeyondDemo", "GridBeyondDemo\GridBeyondDemo.csproj", "{B526B896-0CD0-4A9F-AECF-FE44196D5588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridBeyondDatabase", "GridBeyondDatabase\GridBeyondDatabase.csproj", "{3910C04B-E174-4B3F-9BE8-8BB38A7E714D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B526B896-0CD0-4A9F-AECF-FE44196D5588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B526B896-0CD0-4A9F-AECF-FE44196D5588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B526B896-0CD0-4A9F-AECF-FE44196D5588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B526B896-0CD0-4A9F-AECF-FE44196D5588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3910C04B-E174-4B3F-9BE8-8BB38A7E714D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3910C04B-E174-4B3F-9BE8-8BB38A7E714D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3910C04B-E174-4B3F-9BE8-8BB38A7E714D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3910C04B-E174-4B3F-9BE8-8BB38A7E714D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {685DAD1D-74D6-4C68-B379-BDF89991F0C6}
+	EndGlobalSection
+EndGlobal
