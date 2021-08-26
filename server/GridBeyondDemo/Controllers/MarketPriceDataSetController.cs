@@ -1,5 +1,4 @@
-﻿using GridBeyondDatabase;
-using GridBeyondDatabase.Models;
+﻿using GridBeyondDatabase.Models;
 using GridBeyondDemo.Enums;
 using GridBeyondDemo.Services;
 using Microsoft.AspNetCore.Http;

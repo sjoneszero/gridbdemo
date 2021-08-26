@@ -20,7 +20,7 @@
     "GridBeyondDemo": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/MarketPrice/Ping",
+      "launchUrl": "api/Ping",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
