@@ -73,13 +73,13 @@ export class AnalysisComponent implements OnInit {
                   displayFormats: {
                     month: 'MMM yyyy'
                 },
-                tooltipFormat: 'DD MMM:YY hh:mm',
+                tooltipFormat: 'DD MMM:YY HH:mm',
 
               }
           }],
           yAxes: [{
             ticks: {
-              callback: (value) => {
+              callback: (value: string) => {
                   return this.addCurrency(value.toString());
               }
             }
