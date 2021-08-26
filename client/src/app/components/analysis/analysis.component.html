@@ -1,0 +1,75 @@
+<div *ngIf="!loading && error" class="alert alert-danger m-4 text-center">
+  There was an error loading analysis data
+</div>
+<div class="container-xl p-3">
+  <div class="h3 ml-4" *ngIf="!loading">
+   Dataset: {{responseData.Description}}
+  </div>
+  <div class="row">
+    <div class="col-12 ">
+      <div class="card border-dark">
+        <div class="card-header text-center h4">
+         Market Price Trend
+        </div>
+        <div class="card-body p-3">
+          <canvas id="marketDataChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="!loading">
+    <div class="col-12">
+      <div class="card-group">
+        <div class="card bg-light border-dark">
+          <div class="card-header text-center h5">
+            Maximum
+          </div>
+          <div class="card-body text-center">
+            <span class="h4 display-5 d-block">
+              {{addCurrency(responseData.Max.Price)}}
+            </span>
+            <span class="h5 d-block">
+              {{reformatDate(responseData.Max.TimeStamp)}}
+            </span>
+          </div>
+        </div>
+        <div class="card bg-light border-dark">
+          <div class="card-header text-center h5">
+            Minimum
+          </div>
+          <div class="card-body text-center">
+            <span class="h4 display-5 d-block">
+              {{addCurrency(responseData.Min.Price)}}
+            </span>
+            <span class="h5 d-block">
+              {{reformatDate(responseData.Min.TimeStamp)}}
+            </span>
+          </div>
+        </div>
+        <div class="card bg-light border-dark">
+          <div class="card-header text-center h5">
+           Average
+          </div>
+          <div class="card-body text-center align-self-center">
+            <span class="h4 display-5 d-block">
+              {{addCurrency(responseData.Average.Price)}}
+            </span>
+          </div>
+        </div>
+        <div class="card bg-light border-dark">
+          <div class="card-header text-center h5">
+            Most Expensive Hour WIndow
+          </div>
+          <div class="card-body text-center">
+            <span class="h4 display-5 d-block">
+              {{addCurrency(responseData.MostExpensiveHourWindow.Price)}}
+            </span>
+            <span class="h5 d-block">
+              {{reformatDate(responseData.MostExpensiveHourWindow.TimeStamp)}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

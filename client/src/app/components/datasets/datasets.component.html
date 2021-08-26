@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 px-2 mb-3">
+      <h3 class="section-title">
+          <span translate="jobs_translationjobs"></span>
+          <small class="text-muted" translate="jobs_subheadertranslationjobs"></small>
+      </h3>
+      <button class="btn btn-outline-secondary" (click)="getDatasets()">Reload</button>
+      <upload-modal></upload-modal>
+
+  </div>
+  <section class="table-dynamic">
+    <table class="table">
+      <thead class="thead thead-dark">
+          <tr>
+            <th class="col-1">Dataset Id</th>
+            <th class="col-4">Description</th>
+            <th class="col-5">Creation Date</th>
+            <th class="col-2"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let set of datasets">
+            <td>{{set.Id}}</td>
+            <td>{{set.Description}}</td>
+            <td>{{reformatDate(set.CreationDate)}}</td>
+            <td class="d-flex justify-content-end">
+              <div class="btn-toolbar">
+                <button type="button" class="btn btn-outline-success mr-3" [routerLink]="['/datasets', set.Id]" role="button">Show Analysis</button>
+                <button type="button" class="btn btn-outline-danger mr-3" (click)="deleteDataSet(set.Id)">Delete</button>
+              </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </section>
+</div>
+
+
+
+
+
