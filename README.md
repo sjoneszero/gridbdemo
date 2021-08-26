@@ -1,6 +1,6 @@
 # Market Price Data Analysis Demo
 
-This is a .NET 5 Web API / Entity Framework / MS SQL Server / Angular 12 based web application which allows the user to a upload and save market price related dataset (in the specified CSV file format). Once the data has been saved to the database, the user can then view the data in graph format (powered by Chart.js) and also view specific analysis calculations - e.g. the min price, max price, average and the most expensive hour window.
+This is a .NET 5 Web API / Entity Framework / MS SQL Server / Angular 12 based web application which allows the user to a upload and save market price related datasets (in the specified CSV file format). Once the data has been saved to the database, the user can then view the data in graph format (powered by Chart.js) and also view specific analysis calculations - e.g. the min price, max price, average and the most expensive hour window.
 
 To run the server: 
 - Open the server/GridBeyondDemo.sln file in in Visual Studio.	
