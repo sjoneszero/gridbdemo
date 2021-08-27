@@ -1,10 +1,10 @@
-using GridBeyondDatabase;
+using GridBeyond.Database;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace GridBeyondDemo
+namespace GridBeyondDemo.Api
 {
     public class Program
     {

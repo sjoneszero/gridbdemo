@@ -1,8 +1,13 @@
-﻿using GridBeyondDatabase.Models;
+﻿using GridBeyond.Database;
+using GridBeyond.Database.Models;
 
-namespace GridBeyondDemo.Services
+namespace GridBeyondDemo.Api.Services
 {
     public sealed class MarketPriceService : BaseDbService<MarketPrice>
     {
+
+        public MarketPriceService(DatabaseContext databaseContext) : base(databaseContext)
+        {
+        }
     }
 }

@@ -27,7 +27,9 @@
           <span *ngIf="uploading">Uploading...</span>
         </div>
         <div class="alert alert-success text-center " *ngIf="success">
-          <span>CSV file uploaded successfully. Please reload datasets to view.</span>
+          <span>CSV file uploaded successfully&nbsp;
+            <a (click)="modal.dismiss('dismiss')" routerLink="{{newId}}">Click here to view analysis</a>
+          </span>
         </div>
         <div class="alert alert-danger text-center" *ngIf="error">
           <span>{{errormessage}}</span>

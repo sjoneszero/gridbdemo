@@ -1,4 +1,4 @@
-using GridBeyondDatabase;
+using GridBeyond.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace GridBeyondDemo
+namespace GridBeyondDemo.Api
 {
     public class Startup
     {

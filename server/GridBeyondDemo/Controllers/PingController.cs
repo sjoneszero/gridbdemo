@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GridBeyondDemo.Controllers
+namespace GridBeyondDemo.Api.Controllers
 {
     /// <summary>
     /// Enabled a ping endpoint to test connectivity

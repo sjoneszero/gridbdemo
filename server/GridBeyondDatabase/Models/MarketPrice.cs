@@ -1,7 +1,7 @@
-﻿using GridBeyondDatabase.Interfaces;
+﻿using GridBeyond.Database.Interfaces;
 using System;
 
-namespace GridBeyondDatabase.Models
+namespace GridBeyond.Database.Models
 {
     /// <summary>
     /// Database model to represent a the market price at a given point in time

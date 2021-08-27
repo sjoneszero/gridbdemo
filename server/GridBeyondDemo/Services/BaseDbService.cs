@@ -1,16 +1,21 @@
-﻿using GridBeyondDatabase;
-using GridBeyondDatabase.Interfaces;
+﻿using GridBeyond.Database;
+using GridBeyond.Database.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace GridBeyondDemo.Services
+namespace GridBeyondDemo.Api.Services
 {
     public abstract class BaseDbService<T> where T : class, IDbModel
     {
-        protected readonly DatabaseContext DatabaseContext = new DatabaseContext();
+        protected readonly DatabaseContext DatabaseContext;
+
+        public BaseDbService(DatabaseContext databaseContext)
+        {
+            DatabaseContext = databaseContext; 
+        } 
 
         /// <summary>
         /// Gets a list of entities that matches a predicate

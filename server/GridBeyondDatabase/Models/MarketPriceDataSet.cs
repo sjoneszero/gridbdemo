@@ -1,10 +1,10 @@
 ﻿
-using GridBeyondDatabase.Interfaces;
+using GridBeyond.Database.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GridBeyondDatabase.Models
+namespace GridBeyond.Database.Models
 {
     /// <summary>
     /// Database model to represent a single set of Market Price data

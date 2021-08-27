@@ -1,6 +1,7 @@
-﻿using GridBeyondDatabase.Models;
+﻿using GridBeyond.Database;
+using GridBeyond.Database.Models;
 using GridBeyondDemo.Enums;
-using GridBeyondDemo.Services;
+using GridBeyondDemo.Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,19 +10,20 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace GridBeyondDemo.Controllers
+namespace GridBeyondDemo.Api.Controllers
 {
     /// <summary>
     /// Returns market price data and allows creating and deletion of such data
     /// </summary>
     public class MarketPriceDataSetController : ControllerBase
     {
-        private readonly MarketPriceDataSetService DbService = new MarketPriceDataSetService();
+        private readonly MarketPriceDataSetService DbService;
         private const string CLIENT_BASE_URL = "http://localhost:4200/datasets/"; 
 
 
-        public MarketPriceDataSetController() 
+        public MarketPriceDataSetController(DatabaseContext databaseContext) 
         {
+            DbService = new MarketPriceDataSetService(databaseContext); 
         }
         /// <summary>
         /// Returns top level information of all existing market price datasets
@@ -108,7 +110,7 @@ namespace GridBeyondDemo.Controllers
             };
             DbService.Insert(dataSet);
             DbService.Commit();
-            return Created(new Uri(CLIENT_BASE_URL + dataSet.Id + "/analysis"), dataSet);
+            return Created(new Uri(CLIENT_BASE_URL + dataSet.Id.ToString() + "/analysis"), dataSet.Id);
         }
 
         /// <summary>

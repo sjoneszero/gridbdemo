@@ -1,12 +1,17 @@
-﻿using GridBeyondDatabase.Models;
+﻿using GridBeyond.Database;
+using GridBeyond.Database.Models;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace GridBeyondDemo.Services
+namespace GridBeyondDemo.Api.Services
 {
     public sealed class MarketPriceDataSetService : BaseDbService<MarketPriceDataSet>
     {
+
+        public MarketPriceDataSetService(DatabaseContext databaseContext) : base(databaseContext)
+        {
+        }
         /// <summary>
         /// Override methos for this particular entity
         /// Gets the MarketPriceDataSet that matches a predicate and orders the MarketPrice list by Timestamp

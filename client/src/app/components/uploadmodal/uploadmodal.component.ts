@@ -14,11 +14,13 @@ export class UploadmodalComponent {
   errormessage: string;
   uploading: boolean;
   description: string;
+  newId: number
 
 
   constructor(private modalService: NgbModal, private backendService : BackendService) {}
 
   resetFlags(): void {
+    this.newId = null;
     this.success = false;
     this.error = false;
     this.uploading = false;
@@ -48,6 +50,7 @@ export class UploadmodalComponent {
           (response: any) => {
             this.uploading = false;
               this.success = true;
+              this.newId = response.body
           },
           (error) => {
             this.uploading = false;

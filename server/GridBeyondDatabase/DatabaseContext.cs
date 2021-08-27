@@ -2,9 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using System;
-using GridBeyondDatabase.Models;
+using GridBeyond.Database.Models;
 
-namespace GridBeyondDatabase
+namespace GridBeyond.Database
 {
     public class DatabaseContext : DbContext
     {

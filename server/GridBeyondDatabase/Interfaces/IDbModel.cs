@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Interface used to identify a database entity
 /// </summary>
-namespace GridBeyondDatabase.Interfaces
+namespace GridBeyond.Database.Interfaces
 {
     /// <summary>
     /// Interface to identify DB entity models
