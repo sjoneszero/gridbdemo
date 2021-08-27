@@ -11,7 +11,7 @@ namespace GridBeyondDemo.Api.Controllers
         {
         }
         /// <summary>
-        /// Returns top level information of all existing market price datasets
+        /// Returns a success message to indicate the API is up and running
         /// </summary>
         /// <returns>
         /// 200 OK including an array of market datasets

@@ -34,9 +34,9 @@ namespace GridBeyondDemo.Api.Controllers
         /// </returns>
         [HttpGet]
         [Route("api/marketprices")]
-        public IActionResult Get()
+        public IActionResult GetAnalysis()
         {
-            return Ok(DbService.Get(null, null, true));
+             return Ok(DbService.Get(null, null, true));
         }
         /// <summary>
         /// Returns analysis data for a specifc market price dataset
@@ -52,6 +52,11 @@ namespace GridBeyondDemo.Api.Controllers
         {
             var childEntitiesToInclude = "MarketPrices";
             var dataset = DbService.GetFirst(m => m.Id == id, childEntitiesToInclude, true);
+
+            if (dataset == null) 
+            {
+                return BadRequest(); 
+            }
 
             dataset.Max = CalculateValuesForAnalysis(dataset.MarketPrices.ToList(), DatasetCalculation.Max);
             dataset.Min = CalculateValuesForAnalysis(dataset.MarketPrices.ToList(), DatasetCalculation.Min);

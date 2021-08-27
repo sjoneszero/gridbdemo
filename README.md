@@ -36,3 +36,5 @@ To upload a new dataset in CSV format, click on the **Upload CSV** button
 Add a description and select the CSV file to upload. When the file is uploaded, reload the datasets list to see the new import. Click on **Show Analysis** to view the analysis page 
 
 ![Screenshot](screenshots/analysis.png)
+
+A Unit test project - GridBeyondDemo.Tests- has also now been added which tests the main functionality of the API controller

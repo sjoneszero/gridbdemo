@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GridBeyondDatabase\GridBeyond.Database.csproj" />
+    <ProjectReference Include="..\GridBeyond.Database\GridBeyond.Database.csproj" />
   </ItemGroup>
 
 </Project>

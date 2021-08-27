@@ -23,7 +23,10 @@ namespace GridBeyondDemo.Api.Services
         public override MarketPriceDataSet GetFirst(Expression<Func<MarketPriceDataSet, bool>> predicate = null, string includedPaths = null, bool readOnly = false)
         {
             var dataset =  base.GetFirst(predicate, includedPaths, readOnly);
-           dataset.MarketPrices = dataset.MarketPrices.OrderBy(p => p.TimeStamp).ToList(); 
+            if (dataset != null)
+            {
+                dataset.MarketPrices = dataset.MarketPrices.OrderBy(p => p.TimeStamp).ToList();
+            }          
            return dataset; 
         }
     }
