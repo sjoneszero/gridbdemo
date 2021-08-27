@@ -133,16 +133,14 @@ namespace GridBeyondDemo.Tests
         /// Test to ensure CSV file can be uploaded and saved as a new dataset the database
         /// </summary>
         [Fact]
-        public void Post_ShouldUploadCsvDataToDatabase()
+        public void Post_ShouldImportCsvDataToDatabase()
         {
-            string csvData =
+            var csvData =
                 "Date,Market Price EX1" + Environment.NewLine +
-                "10/01/2017,50.29000092" + Environment.NewLine +
                 "10/01/2017,50.29000092" + Environment.NewLine +
                 "10/01/2017 00:30,50" + Environment.NewLine +
                 "10/01/2017 01:00,50"; 
 
-            // convert string to stream
             var stream = new MemoryStream(Encoding.ASCII.GetBytes(csvData));
             var csvFile = new FormFile(stream, 0, stream.Length, null, "test.csv"); 
 
@@ -156,7 +154,7 @@ namespace GridBeyondDemo.Tests
                 var getResponse = testController.GetAnalysis((int)newId) as OkObjectResult;
                 Assert.Equal(200, getResponse.StatusCode);
                 var returnedObject = getResponse.Value as MarketPriceDataSet;
-                Assert.Equal(4, returnedObject.MarketPrices.Count);
+                Assert.Equal(3, returnedObject.MarketPrices.Count);
                 Assert.Equal("testDescription", returnedObject.Description); 
             }
         }
@@ -167,14 +165,12 @@ namespace GridBeyondDemo.Tests
         [Fact]
         public void Post_ShouldReturnErrorIfCsvDataIsMalformed()
         {
-            string csvData =
+            var csvData =
                 "Date,Market Price EX1" + Environment.NewLine +
-                "10/01/2017,50.29000092" + Environment.NewLine +
                 "10/01/2017,50.29000092" + Environment.NewLine +
                 "not_a_datetime_string,50" + Environment.NewLine +
                 "10/01/2017 01:00,50"; 
 
-            // convert string to stream
             var stream = new MemoryStream(Encoding.ASCII.GetBytes(csvData));
             var csvFile = new FormFile(stream, 0, stream.Length, null, "test.csv");
 
@@ -186,16 +182,13 @@ namespace GridBeyondDemo.Tests
         /// Test to ensure the correct error code is returned if the file upload is not in CSV format
         /// </summary>
         [Fact]
-        public void Post_ShouldReturnErrorIfFileisNotCsv()
+        public void Post_ShouldReturnErrorIfFileIsNotCsv()
         {
-            string csvData =
+            var csvData =
                 "Date,Market Price EX1" + Environment.NewLine +
                 "10/01/2017,50.29000092" + Environment.NewLine +
-                "10/01/2017,50.29000092" + Environment.NewLine +
-                "not_a_datetime_string,50" + Environment.NewLine +
                 "10/01/2017 01:00,50";
 
-            // convert string to stream
             var stream = new MemoryStream(Encoding.ASCII.GetBytes(csvData));
             var csvFile = new FormFile(stream, 0, stream.Length, null, "test.doc");
 
