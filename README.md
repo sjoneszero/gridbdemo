@@ -4,7 +4,8 @@ This is a .NET 5 Web API / Entity Framework / MS SQL Server / Angular 12 based w
 
 To run the server: 
 - Open the server/GridBeyondDemo.sln file in in Visual Studio.	
-- Ensure you have dotnet 5 SDK installed and then build the project	
+- Ensure you have dotnet 5 SDK installed and then build the solution
+- Launch the API by running GridBeyondDemo.Api	
 - The database layer uses the entity framework v5, and technically, once the DB connection string in server/GridBeyondDemo/appsetting.json is valid (assuming you've a local instance of SQL server), the app should run the db migration scripts and launch the URL **https://localhost:5001/api/Ping**
 
 To run the client: 
